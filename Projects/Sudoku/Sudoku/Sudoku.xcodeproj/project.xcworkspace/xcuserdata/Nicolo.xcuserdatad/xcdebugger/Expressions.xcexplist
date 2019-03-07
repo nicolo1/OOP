@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ViewController.viewDidLoad():ViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Grid.init():Grid.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cells">
+            </PersistentString>
+            <PersistentString
+               value = "blocks">
+            </PersistentString>
+            <PersistentString
+               value = "index % BLOCK_MODULO == 0">
+            </PersistentString>
+            <PersistentString
+               value = "index % Constants.BLOCK_DIMENSIONS == 0">
+            </PersistentString>
+            <PersistentString
+               value = "index % Constants.GRID_DIMENSIONS == 0">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Grid.printBlocks():Grid.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "blocks">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
