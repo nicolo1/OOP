@@ -9,10 +9,6 @@
 import UIKit
 
 class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let WINNER_EMOJI: String = "👑"
-    var mainPage: ViewController?
-    
-    var scores = [Score]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +16,25 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         if mainPage != nil {
             self.scores = mainPage!.scores
         }
-    }    
+    }
+    
+    // ===============================================================
+    // Global Variables
+    // ===============================================================
+    let WINNER_EMOJI: String = "👑"
+    
+    var mainPage: ViewController?
+    
+    var scores = [Score]()
  
     @IBAction func btn_dismiss(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
 
     }
+ 
+    // ===============================================================
+    // TableView functions
+    // ===============================================================
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -36,7 +45,11 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // scores are in descending order, first score is the highest
         if indexPath.row == 0 {
+            
+            // set highest score with cell with icon
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellWithIcon", for: indexPath) as! TableViewCellWithIcon
             cell.icon_label?.text = ("\(WINNER_EMOJI)")
             cell.name_label?.text = ("\(self.scores[indexPath.row].name)")

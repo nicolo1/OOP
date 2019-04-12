@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         scores = Score.getAll();
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -24,8 +23,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
-
     // ===============================================================
     // Global Variables
     // ===============================================================
@@ -33,19 +30,18 @@ class ViewController: UIViewController {
     
     var name: String = "" {
         didSet {
-            toggle_btn()
+            toggle_btn(isValid: check_text_fields())
         }
     }
     
     var score: String = "" {
         didSet {
-            toggle_btn()
+            toggle_btn(isValid: check_text_fields())
         }
     }
 
     var scores = [Score]() {
         didSet {
-            // tableView.reloadData();
             
             // sort list of scores by score
             self.scores.sort { (score1, score2) -> Bool in
@@ -54,11 +50,18 @@ class ViewController: UIViewController {
                 if score1.score == score2.score {
                     return score1.name < score2.name
                 }
+                
+                // scores are ordered in descending order
                 return score1.score > score2.score
             }
             
+            // delete scores when size exceeds limit
             while self.scores.count > MAX_SIZE {
+                
+                // scores in descending order, deletes lowest
                 self.scores.last?.delete()
+                
+                // remove deleted score from array
                 self.scores.removeLast()
             }
         }
@@ -67,13 +70,16 @@ class ViewController: UIViewController {
     // ===============================================================
     // Outlets & Actions
     // ===============================================================
-
     @IBOutlet weak var name_text_outlet: UITextField!
     @IBOutlet weak var score_text_outlet: UITextField!
     @IBOutlet weak var add_btn_outlet: UIButton!
+    
+    // action for when user enters character in score text field
     @IBAction func score_text_field_edit(_ sender: UITextField) {
         score = sender.text!
     }
+    
+    // action for when user enters character in name text field
     @IBAction func name_text_field_edit(_ sender: UITextField) {
         name = sender.text!;
     }
@@ -84,20 +90,19 @@ class ViewController: UIViewController {
     
     @IBAction func view_btn(_ sender: UIButton) {
         performSegue(withIdentifier: "leaderboardModally", sender: sender)
-        // TODO: ask sandy how to use the same segue for two buttons the way she thought us to do it
-        
     }
 
     @IBAction func cancel_btn(_ sender: UIButton) {
         clearText()
     }
-    /* @function is_empty
-     * @description checks if provided variable is empty
-     * @params textField
-     * @return Bool, true if valid, false otherwise
+
+    /* @function check_text_fields
+     * @description checks if name and score textfields are empty
+     * @params none
+     * @return Bool, true if non-empty, false otherwise
      */
-    public func is_empty(value: String) -> Bool {
-        return value == "";
+    public func check_text_fields() -> Bool {
+        return (name != "" && score != "")
     }
     
     /* @function toggle_btn
@@ -105,35 +110,18 @@ class ViewController: UIViewController {
      * @params none
      * @return void
      */
-    public func toggle_btn() {
-        
-        // check if values of textboxes arent empty
-        if !is_empty(value: name) && !is_empty(value: score) {
-            
-            // check score is valid integer
-            if  let intScore = Int(score), intScore >= 0 {
-                add_btn_outlet.isEnabled = true;
-                add_btn_outlet.isUserInteractionEnabled = true;
-            } else {
-                add_btn_outlet.isEnabled = false;
-                add_btn_outlet.isUserInteractionEnabled = false;
-            }
-            
-            
-        } else {
-            add_btn_outlet.isEnabled = false;
-            add_btn_outlet.isUserInteractionEnabled = false;
-        }
+    public func toggle_btn(isValid: Bool) {
+        add_btn_outlet.isEnabled = isValid;
+        add_btn_outlet.isUserInteractionEnabled = isValid;
     }
     
+    /* @function clearText
+     * @description clears the name and score textbox
+     * @params none
+     * @return void
+     */
     public func clearText() {
         self.name_text_outlet.text = ""
         self.score_text_outlet.text = ""
     }
-    
-    /* @function
-     * @description
-     * @params
-     * @return
-     */
 }
