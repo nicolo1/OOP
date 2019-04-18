@@ -51,6 +51,7 @@ class GameViewController: UIViewController,ClientServerListenerDelegate {
     // -----------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
+        // TODO dont forget to make delegate lazy to avoid circular reference, only uses it when you need it
         client?.listenerDelegate = self
         sendToTextEntry.textColor = notYetColour
         guessLabel.text = ""
