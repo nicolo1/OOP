@@ -17,6 +17,10 @@
 		26123F412259545B005B091C /* ClientProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26123F402259545B005B091C /* ClientProtocols.swift */; };
 		26123F4F225D19D5005B091C /* ClientListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26123F4E225D19D5005B091C /* ClientListenerProtocol.swift */; };
 		26123F54225D1BDA005B091C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26123F53225D1BDA005B091C /* GameViewController.swift */; };
+		3038E34E2268FF0E000F0B42 /* guessingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038E34D2268FF0E000F0B42 /* guessingGame.swift */; };
+		3038E3502268FF2B000F0B42 /* gameServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038E34F2268FF2B000F0B42 /* gameServerController.swift */; };
+		3038E3522268FF3D000F0B42 /* gameServerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038E3512268FF3D000F0B42 /* gameServerViewDelegate.swift */; };
+		3038E3542268FF50000F0B42 /* userReceivedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038E3532268FF50000F0B42 /* userReceivedData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		26123F402259545B005B091C /* ClientProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientProtocols.swift; sourceTree = "<group>"; };
 		26123F4E225D19D5005B091C /* ClientListenerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientListenerProtocol.swift; sourceTree = "<group>"; };
 		26123F53225D1BDA005B091C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		3038E34D2268FF0E000F0B42 /* guessingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guessingGame.swift; sourceTree = "<group>"; };
+		3038E34F2268FF2B000F0B42 /* gameServerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameServerController.swift; sourceTree = "<group>"; };
+		3038E3512268FF3D000F0B42 /* gameServerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameServerViewDelegate.swift; sourceTree = "<group>"; };
+		3038E3532268FF50000F0B42 /* userReceivedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userReceivedData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,10 @@
 				26123F50225D1AA9005B091C /* SocketClient */,
 				26123F3322527DB6005B091C /* OtherStuff */,
 				26123F2D22527CD3005B091C /* Info.plist */,
+				3038E34D2268FF0E000F0B42 /* guessingGame.swift */,
+				3038E34F2268FF2B000F0B42 /* gameServerController.swift */,
+				3038E3512268FF3D000F0B42 /* gameServerViewDelegate.swift */,
+				3038E3532268FF50000F0B42 /* userReceivedData.swift */,
 			);
 			path = ChatApp;
 			sourceTree = "<group>";
@@ -184,11 +196,15 @@
 			files = (
 				26123F392253C7EB005B091C /* ViewControllerConnectToServer.swift in Sources */,
 				26123F37225294AD005B091C /* Client.swift in Sources */,
+				3038E3522268FF3D000F0B42 /* gameServerViewDelegate.swift in Sources */,
+				3038E3542268FF50000F0B42 /* userReceivedData.swift in Sources */,
 				26123F4F225D19D5005B091C /* ClientListenerProtocol.swift in Sources */,
 				26123F54225D1BDA005B091C /* GameViewController.swift in Sources */,
+				3038E34E2268FF0E000F0B42 /* guessingGame.swift in Sources */,
 				26123F2222527CD0005B091C /* AppDelegate.swift in Sources */,
 				26123F412259545B005B091C /* ClientProtocols.swift in Sources */,
 				26123F3B2253EA8A005B091C /* ClientRecievedData.swift in Sources */,
+				3038E3502268FF2B000F0B42 /* gameServerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

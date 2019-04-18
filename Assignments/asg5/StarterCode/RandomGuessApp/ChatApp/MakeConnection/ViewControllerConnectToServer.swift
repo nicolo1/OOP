@@ -96,7 +96,4 @@ class ViewControllerConnectToServer: UIViewController, ClientConnectionDelegate 
             destination.me = username
         }
     }
-    
-    
-    
 }

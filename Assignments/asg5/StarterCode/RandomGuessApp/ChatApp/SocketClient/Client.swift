@@ -20,7 +20,7 @@ class Client:NSObject, StreamDelegate {
     // --------------------------------------------------------
     // define level of printing of debug messages
     // --------------------------------------------------------
-    let debug = false
+    let debug = true
     private func debug(_ str:String) {
         if debug {
             print ("Client: \(str)")
