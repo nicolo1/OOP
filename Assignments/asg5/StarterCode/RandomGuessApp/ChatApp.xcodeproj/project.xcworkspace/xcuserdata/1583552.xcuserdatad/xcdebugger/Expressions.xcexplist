@@ -14,13 +14,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "GameViewController.clientListenerDidConnect(asPlayer:andName:):GameViewController.swift">
+         contextName = "gameServerController.processUserData(_:):gameServerController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "myPlayerNumber">
+               value = "game">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "gameServerController.clientListenerReceived(rawData:):gameServerController.swift">
+         <PersistentStrings>
             <PersistentString
-               value = "playerLabel.text">
+               value = "you">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -38,6 +43,44 @@
             </PersistentString>
             <PersistentString
                value = "game">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.clientListenerDidConnect(asPlayer:andName:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "myPlayerNumber">
+            </PersistentString>
+            <PersistentString
+               value = "playerLabel.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "gameServerController.numberOfPlayers.didset:gameServerController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "you">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "gameServerController.randomNumberToGuess.didset:gameServerController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "randomNumberToGuess">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "gameServerController.someBodyConnected(userData:):gameServerController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "myPlayerNumber">
+            </PersistentString>
+            <PersistentString
+               value = "you">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

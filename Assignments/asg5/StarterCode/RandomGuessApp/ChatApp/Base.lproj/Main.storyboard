@@ -31,7 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHA-0G-wOf">
-                                <rect key="frame" x="20" y="227.66666666666666" width="79" height="21"/>
+                                <rect key="frame" x="20" y="228" width="79" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -62,7 +62,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HyT-Bk-Y60">
-                                <rect key="frame" x="16" y="351.66666666666669" width="382" height="200.00000000000006"/>
+                                <rect key="frame" x="16" y="352" width="382" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="byq-AF-sb8"/>
                                 </constraints>
@@ -71,14 +71,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLU-4h-LYr">
-                                <rect key="frame" x="177.66666666666666" y="305.66666666666669" width="59" height="30"/>
+                                <rect key="frame" x="177.66666666666666" y="306" width="59" height="30"/>
                                 <state key="normal" title="Connect"/>
                                 <connections>
                                     <action selector="ConnectTap:" destination="bn1-6L-g1T" eventType="touchUpInside" id="qzd-O1-F9t"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="spu-SU-yRd">
-                                <rect key="frame" x="20" y="256.66666666666669" width="374" height="30"/>
+                                <rect key="frame" x="20" y="257" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -151,6 +151,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="guess_text_field_edit:" destination="BYZ-38-t0r" eventType="editingChanged" id="JUv-wd-yUr"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0U1-o4-Sbl">
                                 <rect key="frame" x="362" y="258" width="36" height="30"/>

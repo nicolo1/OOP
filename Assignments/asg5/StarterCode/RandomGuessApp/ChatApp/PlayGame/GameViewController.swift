@@ -15,13 +15,13 @@ import UIKit
 class GameViewController: UIViewController, GameServerViewListenerDelegate {
     
     // -----------------------------------------------------------
-    // public properties
+    // Public properties
     // -----------------------------------------------------------
     var client:Client?
     var me:String = "Me"
     var myPlayerNumber = 0
     var game: gameServerController?
-
+    var userGuess: String = ""
     
     // -----------------------------------------------------------
     // UI related global vars
@@ -38,60 +38,137 @@ class GameViewController: UIViewController, GameServerViewListenerDelegate {
     let okColour:UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     
     // -----------------------------------------------------------
-    // initialize view
+    // Initialize view
     // -----------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        sendToTextEntry.textColor = notYetColour
-        guessLabel.text = ""
-        game = gameServerController(client: self.client!, me: self.me, myPlayer: self.myPlayerNumber)
+        game = gameServerController(client: self.client!, me: self.me, myPlayer: self.myPlayerNumber, mainPage: self)
     }
 
     
     // -----------------------------------------------------------
-    // start new game
+    // Start new game
     // -----------------------------------------------------------
     @IBAction func StartNewGame(_ sender: UIButton) {
-        game!.randomNumberToGuess = Int(arc4random_uniform(10)) + 1
-        StatusLabel.text = "sending random number"
-        SendButton.isEnabled = true
+        game!.startGame()
     }
     
     // -----------------------------------------------------------
-    // disconnect from the server
+    // Exits the game
     // -----------------------------------------------------------
     @IBAction func ExitTap(_ sender: UIButton) {
+        game!.exitGame()
         dismiss(animated: true, completion: nil)
     }
     
     // -----------------------------------------------------------
-    // send info to the server
+    // Send guess, validate number
     // -----------------------------------------------------------
     @IBAction func SendButtonTap(_ sender: UIButton) {
+        if validateNumber(text: self.userGuess) {
+            self.game!.sendToServer(number: Int(self.userGuess)!)
+        } else {
+            updateViewError(message: "you must send an integer")
+        }
         
     }
     
-    func exitView() {
-        print("THIS IS EXIT VIEW")
-        print("THIS IS EXIT VIEW DONE")
+    // -----------------------------------------------------------
+    // Guess edit event
+    // -----------------------------------------------------------
+    @IBAction func guess_text_field_edit(_ sender: UITextField) {
+        self.userGuess = sender.text!
+    }
+    
+    // -----------------------------------------------------------
+    // Validate that text is a valid integer
+    // -----------------------------------------------------------
+    func validateNumber(text: String) -> Bool {
+        let myNum = Int(self.userGuess) ?? -1
+        if myNum < -1 {
+            return false
+        }
+        return true
+    }
+    
+    // ----------------------------------------------------
+    // Update the view when number of players changes
+    // ----------------------------------------------------
+    func updatePlayersChangedUpdateView(numberOfPlayers: Int, me: String, you: String) {
+        if numberOfPlayers == 2 {
+            NewGameButton.isEnabled = true
+            StatusLabel.text = ""
+            playerLabel.text = "\(me) vs \(you)"
+        }
+        else {
+            StatusLabel.text = "waiting for another player to connect"
+            NewGameButton.isEnabled = false
+            playerLabel.text = "\(me)"
+            SendButton.isEnabled = false
+            guessLabel.text = ""
+        }
     }
 
-    func sendView(text: String) {
-        print("THIS IS SEND VIEW")
-        print(text)
-        print("THIS IS SEND VIEW DONE")
+    // -----------------------------------------------------------
+    // Updates the status based on text
+    // -----------------------------------------------------------
+    func updateViewStatus(text:String) {
+        StatusLabel.text = text
+    }
+    
+    // ----------------------------------------------------
+    // Update view depending on whose turn it is
+    // ----------------------------------------------------
+    func updateViewBasedOnCurrentPlayer(isGameWon: Bool, myPlayerTurn: Int, currentPlayerTurn: Int, you: String) {
+        if isGameWon {
+            StatusLabel.text = "GAME OVER"
+        }
+        else {
+            if myPlayerTurn == currentPlayerTurn {
+                StatusLabel.text = "It's my turn, I'm gonna take a guess"
+                sendToTextEntry.textColor = okColour
+            }
+            else {
+                StatusLabel.text = "waiting for \(you)"
+                sendToTextEntry.textColor = notYetColour
+            }
+        }
+    }
+    
+    // ----------------------------------------------------
+    // Update guess label based on current players guess
+    // ----------------------------------------------------
+    func updateGuess(guess: String) {
+        guessLabel.text = guess
     }
 
-    func updateView(isGameWon: Bool, name: String) {
-        print("THIS IS UPDATE VIEW")
-        print(isGameWon)
-        print(name)
-        print("THIS IS UPDATE VIEW DONE")
+    // ----------------------------------------------------
+    // Update when game starts
+    // ----------------------------------------------------
+    func updateViewStartGame(status: String, isEnabled: Bool) {
+        StatusLabel.text = status
+        SendButton.isEnabled = isEnabled
     }
+
+    // ----------------------------------------------------
+    // Update player name
+    // ----------------------------------------------------
     func updateViewName(name: String) {
-        print("THIS IS UPDATE VIEW")
-        print(name)
-        print("THIS IS UPDATE VIEW DONE")
+        playerLabel.text = me
     }
-
+    
+    // ----------------------------------------------------
+    // Update error message based on error
+    // ----------------------------------------------------
+    func updateViewError(message: String) {
+        sendToTextEntry.textColor = notYetColour
+        StatusLabel.text = message
+    }
+    
+    // ----------------------------------------------------
+    // Update guessing text field
+    // ----------------------------------------------------
+    func updateSendText(text: String) {
+        sendToTextEntry.text = text
+    }
 }

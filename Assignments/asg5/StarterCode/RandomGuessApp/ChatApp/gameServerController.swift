@@ -9,63 +9,52 @@
 import Foundation
 
 class gameServerController: ClientServerListenerDelegate {
-    
-    /*
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // TODO dont forget to make delegate lazy to avoid circular reference, only uses it when you need it
-        client?.listenerDelegate = self
-    }
-    */
-
     var mainPage: GameViewController?
+    var game: guessingGame?
 
     // -----------------------------------------------------------
     // public properties
     // -----------------------------------------------------------
     var client:Client?
-    
     var me:String = "Me"
     var myPlayerNumber = 0
-    var game: guessingGame?
+    
     
     // -----------------------------------------------------------
     // global variables related to the game
     // -----------------------------------------------------------
+    var isGameWon = false
     var you = "You"
-    
     var currentPlayer = 0
-    var myTurn:Bool {return myPlayerNumber == currentPlayer}
-    
-    var randomNumberToGuess:Int = -1 {
+    var myTurn:Bool {return self.myPlayerNumber == self.currentPlayer}
+    var randomNumberToGuess:Int = -1
+    var numberOfPlayers = 0 {
         didSet {
-            // WHENEVER RANDOM NUMBER IS SET, ADD TO OUTPUT QUEUE
+            mainPage!.updatePlayersChangedUpdateView(numberOfPlayers: self.numberOfPlayers, me: self.me, you: self.you)
         }
     }
-    var numberOfPlayers = 0
     
-    var isGameWon = false
-    
-    init (client: Client, me: String, myPlayer: Int) {
+    init (client: Client, me: String, myPlayer: Int, mainPage: GameViewController) {
         self.client = client
         self.me = me
         self.myPlayerNumber = myPlayer
         self.client?.listenerDelegate = self
+        self.mainPage = mainPage
+        self.game = guessingGame()
     }
     
     // -----------------------------------------------------------
     // client (that's me) has connected
     // -----------------------------------------------------------
     func clientListenerDidConnect(asPlayer num: Int, andName name: String) {
-        // playerLabel.text = me
-        // myPlayerNumber = num
+        self.mainPage!.updateViewName(name: name)
     }
+    
     // ----------------------------------------------------
     // any error, just bail out (so sad)
     // ----------------------------------------------------
     func clientListenerReceived(errorString error: String) {
         client?.closeSocket()
-        // dismiss(animated: true, completion: nil)
     }
     
     // ----------------------------------------------------
@@ -114,35 +103,37 @@ class gameServerController: ClientServerListenerDelegate {
             else {
                 me = parts[1]
             }
-            // playerLabel.text = "\(me) vs \(you)"
+            self.mainPage!.updatePlayersChangedUpdateView(numberOfPlayers: self.numberOfPlayers, me: self.me, you: self.you)
         }
         
         // this is the random number we need to guess
         if parts[0] == "randomNumber" {
             randomNumberToGuess = Int(parts[1]) ?? -1
             client?.addToOutputQueue(thisData: "ranNumReceived:\(randomNumberToGuess)")
-            // StatusLabel.text = "Ready to play, waiting for \(you)"
+            self.mainPage!.updateViewStatus(text:"Ready to play, waiting for \(you)")
         }
         
         // we have received the random number
         if parts[0] == "ranNumReceived" {
-            currentPlayer = 1
-            // SendButton.isEnabled = true
-            isGameWon = false
-            // updateViewBaseOnCurrentPlayer()
-            // guessLabel.text = ""
+            self.currentPlayer = 1
+            
+            self.mainPage!.updateViewStartGame(status: "", isEnabled: true)
+            self.game! = guessingGame(randomNumberToGuess: self.randomNumberToGuess)
+            self.isGameWon = false
+            self.mainPage!.updateViewBasedOnCurrentPlayer(isGameWon: self.isGameWon, myPlayerTurn: self.myPlayerNumber, currentPlayerTurn: self.currentPlayer, you: self.you)
         }
         
         // someone took a guess, now its the others turn
         if parts[0] == "guess" {
             let guess = Int(parts[1]) ?? -1
-            // processGuess(forPlayer: currentPlayer, withGuess: guess)
-            currentPlayer = currentPlayer % 2 + 1
+            let result = self.game!.processGuess(guesser: self.myTurn ? self.me : self.you, withGuess: guess)
+            self.mainPage!.updateGuess(guess: result)
+            self.currentPlayer = self.currentPlayer % 2 + 1
             if (self.game!.isGameOver(baseOnCurrentGuess:guess)) {
-                currentPlayer = 0
-                isGameWon = true
+                self.currentPlayer = 0
+                self.isGameWon = true
             }
-            //updateViewBaseOnCurrentPlayer()
+            self.mainPage!.updateViewBasedOnCurrentPlayer(isGameWon: self.isGameWon, myPlayerTurn: self.myPlayerNumber, currentPlayerTurn: self.currentPlayer, you: self.you)
         }
     }
     
@@ -158,28 +149,29 @@ class gameServerController: ClientServerListenerDelegate {
         return results
     }
     
+    // ----------------------------------------------------
+    //
+    // ----------------------------------------------------
     func startGame() {
-        let ran = Int(arc4random_uniform(10)) + 1
-        client?.addToOutputQueue(thisData: "randomNumber:\(ran)")
+        self.randomNumberToGuess = Int(arc4random_uniform(10)) + 1
+        self.client?.addToOutputQueue(thisData: "randomNumber:\(self.randomNumberToGuess)")
+        self.mainPage!.updateViewStartGame(status: "sending random number", isEnabled: true)
     }
     
+    // ----------------------------------------------------
+    // 
+    // ----------------------------------------------------
     func exitGame() {
-        client?.closeSocket()
+        self.client?.closeSocket()
     }
     
-    func sendToServer(text: String) {
-        if myTurn {
-            
-            // validate for valid integer
-            let myNum = Int(text) ?? -1
-            if myNum > -1 {
-                client?.addToOutputQueue(thisData: "guess:\(myNum)")
-                // sendToTextEntry.text = ""
-            }
-            // else {
-                // sendToTextEntry.textColor = notYetColour
-                // StatusLabel.text = "you must send an integer"
-            // }
+    // ----------------------------------------------------
+    // User clicked send button, send data to server
+    // ----------------------------------------------------
+    func sendToServer(number: Int) {
+        if self.myTurn {
+            self.client?.addToOutputQueue(thisData: "guess:\(number)")
+            self.mainPage!.updateSendText(text: "")
         }
     }
 }

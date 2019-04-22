@@ -10,8 +10,13 @@ import Foundation
 
 //TODO delegate where gameServerController makes calls to functions in gameViewController
 protocol GameServerViewListenerDelegate:class {
-    func exitView()
-    func sendView(text: String)
-    func updateView(isGameWon :Bool, name:String)
+    
+    func updateSendText(text: String)
+    func updateViewStatus(text:String)
+    func updateGuess(guess: String)
+    func updatePlayersChangedUpdateView(numberOfPlayers: Int, me: String, you: String)
+    func updateViewBasedOnCurrentPlayer(isGameWon: Bool, myPlayerTurn: Int, currentPlayerTurn: Int, you: String)
+    func updateViewStartGame(status: String, isEnabled: Bool)
     func updateViewName(name: String)
+    func updateViewError(message: String)
 }

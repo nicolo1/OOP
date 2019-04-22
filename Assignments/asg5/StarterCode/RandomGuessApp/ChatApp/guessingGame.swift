@@ -13,6 +13,7 @@ class guessingGame {
     init(randomNumberToGuess: Int) {
         self.randomNumberToGuess = randomNumberToGuess
     }
+    init() {}
     
     // ------------------------------------------------------
     // process the guess
