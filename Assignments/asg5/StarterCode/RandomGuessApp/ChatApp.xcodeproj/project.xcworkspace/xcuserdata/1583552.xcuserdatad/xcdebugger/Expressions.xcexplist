@@ -74,6 +74,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "GameViewController.updateViewName(name:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "me">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "gameServerController.someBodyConnected(userData:):gameServerController.swift">
          <PersistentStrings>
             <PersistentString
@@ -81,6 +89,17 @@
             </PersistentString>
             <PersistentString
                value = "you">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.updatePlayersChangedUpdateView(numberOfPlayers:me:you:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "playerLabel.text">
+            </PersistentString>
+            <PersistentString
+               value = "StatusLabel.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -96,15 +96,16 @@ class GameViewController: UIViewController, GameServerViewListenerDelegate {
     // ----------------------------------------------------
     func updatePlayersChangedUpdateView(numberOfPlayers: Int, me: String, you: String) {
         if numberOfPlayers == 2 {
-            NewGameButton.isEnabled = true
             StatusLabel.text = ""
+            NewGameButton.isEnabled = true
             playerLabel.text = "\(me) vs \(you)"
+            guessLabel.text = ""
         }
         else {
+            SendButton.isEnabled = false
             StatusLabel.text = "waiting for another player to connect"
             NewGameButton.isEnabled = false
             playerLabel.text = "\(me)"
-            SendButton.isEnabled = false
             guessLabel.text = ""
         }
     }
@@ -148,6 +149,7 @@ class GameViewController: UIViewController, GameServerViewListenerDelegate {
     func updateViewStartGame(status: String, isEnabled: Bool) {
         StatusLabel.text = status
         SendButton.isEnabled = isEnabled
+        guessLabel.text = ""
     }
 
     // ----------------------------------------------------
