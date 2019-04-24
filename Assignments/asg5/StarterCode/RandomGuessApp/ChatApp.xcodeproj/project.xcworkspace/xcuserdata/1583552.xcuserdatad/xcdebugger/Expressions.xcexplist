@@ -103,5 +103,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "gameServerController.sendToServer(guess:):gameServerController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "let myNum = Int(&quot;a&quot;) ?? -1">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

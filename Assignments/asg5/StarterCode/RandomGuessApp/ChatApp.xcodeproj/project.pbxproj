@@ -20,7 +20,6 @@
 		3038E34E2268FF0E000F0B42 /* guessingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038E34D2268FF0E000F0B42 /* guessingGame.swift */; };
 		3038E3502268FF2B000F0B42 /* gameServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038E34F2268FF2B000F0B42 /* gameServerController.swift */; };
 		3038E3522268FF3D000F0B42 /* gameServerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038E3512268FF3D000F0B42 /* gameServerViewDelegate.swift */; };
-		3038E3542268FF50000F0B42 /* userReceivedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038E3532268FF50000F0B42 /* userReceivedData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +38,6 @@
 		3038E34D2268FF0E000F0B42 /* guessingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guessingGame.swift; sourceTree = "<group>"; };
 		3038E34F2268FF2B000F0B42 /* gameServerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameServerController.swift; sourceTree = "<group>"; };
 		3038E3512268FF3D000F0B42 /* gameServerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameServerViewDelegate.swift; sourceTree = "<group>"; };
-		3038E3532268FF50000F0B42 /* userReceivedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userReceivedData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +79,6 @@
 				3038E34D2268FF0E000F0B42 /* guessingGame.swift */,
 				3038E34F2268FF2B000F0B42 /* gameServerController.swift */,
 				3038E3512268FF3D000F0B42 /* gameServerViewDelegate.swift */,
-				3038E3532268FF50000F0B42 /* userReceivedData.swift */,
 			);
 			path = ChatApp;
 			sourceTree = "<group>";
@@ -197,7 +194,6 @@
 				26123F392253C7EB005B091C /* ViewControllerConnectToServer.swift in Sources */,
 				26123F37225294AD005B091C /* Client.swift in Sources */,
 				3038E3522268FF3D000F0B42 /* gameServerViewDelegate.swift in Sources */,
-				3038E3542268FF50000F0B42 /* userReceivedData.swift in Sources */,
 				26123F4F225D19D5005B091C /* ClientListenerProtocol.swift in Sources */,
 				26123F54225D1BDA005B091C /* GameViewController.swift in Sources */,
 				3038E34E2268FF0E000F0B42 /* guessingGame.swift in Sources */,

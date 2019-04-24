@@ -150,7 +150,7 @@ class gameServerController: ClientServerListenerDelegate {
     }
     
     // ----------------------------------------------------
-    //
+    // Start Game
     // ----------------------------------------------------
     func startGame() {
         self.randomNumberToGuess = Int(arc4random_uniform(10)) + 1
@@ -159,7 +159,7 @@ class gameServerController: ClientServerListenerDelegate {
     }
     
     // ----------------------------------------------------
-    // 
+    // Exit Game
     // ----------------------------------------------------
     func exitGame() {
         self.client?.closeSocket()
@@ -168,10 +168,27 @@ class gameServerController: ClientServerListenerDelegate {
     // ----------------------------------------------------
     // User clicked send button, send data to server
     // ----------------------------------------------------
-    func sendToServer(number: Int) {
-        if self.myTurn {
-            self.client?.addToOutputQueue(thisData: "guess:\(number)")
-            self.mainPage!.updateSendText(text: "")
+    func sendToServer(guess: String) {
+        
+        if validateNumber(text: guess) {
+            let number = Int(guess)!
+            if self.myTurn {
+                self.client?.addToOutputQueue(thisData: "guess:\(number)")
+                self.mainPage!.updateSendText(text: "")
+            }
+        } else {
+            self.mainPage!.updateViewError(message: "you must send an integer")
         }
+    }
+    
+    // -----------------------------------------------------------
+    // Validate that text is a valid integer
+    // -----------------------------------------------------------
+    func validateNumber(text: String) -> Bool {
+        let myNum = Int(text) ?? -1
+        if myNum <= -1 {
+            return false
+        }
+        return true
     }
 }

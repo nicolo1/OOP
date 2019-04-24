@@ -8,9 +8,7 @@
 
 import Foundation
 
-//TODO delegate where gameServerController makes calls to functions in gameViewController
-protocol GameServerViewListenerDelegate:class {
-    
+protocol GameServerViewListenerDelegate:class {    
     func updateSendText(text: String)
     func updateViewStatus(text:String)
     func updateGuess(guess: String)

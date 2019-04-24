@@ -42,6 +42,8 @@ class GameViewController: UIViewController, GameServerViewListenerDelegate {
     // -----------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // initialize the game
         game = gameServerController(client: self.client!, me: self.me, myPlayer: self.myPlayerNumber, mainPage: self)
     }
 
@@ -65,12 +67,7 @@ class GameViewController: UIViewController, GameServerViewListenerDelegate {
     // Send guess, validate number
     // -----------------------------------------------------------
     @IBAction func SendButtonTap(_ sender: UIButton) {
-        if validateNumber(text: self.userGuess) {
-            self.game!.sendToServer(number: Int(self.userGuess)!)
-        } else {
-            updateViewError(message: "you must send an integer")
-        }
-        
+        self.game!.sendToServer(guess: self.userGuess)
     }
     
     // -----------------------------------------------------------
@@ -78,17 +75,6 @@ class GameViewController: UIViewController, GameServerViewListenerDelegate {
     // -----------------------------------------------------------
     @IBAction func guess_text_field_edit(_ sender: UITextField) {
         self.userGuess = sender.text!
-    }
-    
-    // -----------------------------------------------------------
-    // Validate that text is a valid integer
-    // -----------------------------------------------------------
-    func validateNumber(text: String) -> Bool {
-        let myNum = Int(self.userGuess) ?? -1
-        if myNum < -1 {
-            return false
-        }
-        return true
     }
     
     // ----------------------------------------------------
