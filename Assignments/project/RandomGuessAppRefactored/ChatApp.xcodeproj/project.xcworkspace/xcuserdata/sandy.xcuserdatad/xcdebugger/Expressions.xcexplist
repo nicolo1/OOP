@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "GuessingGame.newGame(withRandomNumber:):GuessingGame.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "numberToGuess">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewControllerConnectToServer.prepare(for:sender:):ViewControllerConnectToServer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "playerNumber">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.clientReceived(rawData:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "myPlayerNumber">
+            </PersistentString>
+            <PersistentString
+               value = "me">
+            </PersistentString>
+            <PersistentString
+               value = "you">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.welcome(userData:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "myPlayerNumber">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Client.connect(toURL:viaPort:):Client.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "inputStream">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GuessingGame.numberToGuess.didset:GuessingGame.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "numberToGuess">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameServerController.processUserData(_:):GameServerController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "you">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GuessingGame.gamePlay(wasGuessed:fromPlayer:):GuessingGame.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "numberToGuess">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
