@@ -20,6 +20,7 @@
 		3038E34E2268FF0E000F0B42 /* guessingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038E34D2268FF0E000F0B42 /* guessingGame.swift */; };
 		3038E3502268FF2B000F0B42 /* gameServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038E34F2268FF2B000F0B42 /* gameServerController.swift */; };
 		3038E3522268FF3D000F0B42 /* gameServerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038E3512268FF3D000F0B42 /* gameServerViewDelegate.swift */; };
+		3071EFD8227C8FBB009B4D84 /* ConnectFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3071EFD7227C8FBB009B4D84 /* ConnectFour.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		3038E34D2268FF0E000F0B42 /* guessingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guessingGame.swift; sourceTree = "<group>"; };
 		3038E34F2268FF2B000F0B42 /* gameServerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameServerController.swift; sourceTree = "<group>"; };
 		3038E3512268FF3D000F0B42 /* gameServerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameServerViewDelegate.swift; sourceTree = "<group>"; };
+		3071EFD7227C8FBB009B4D84 /* ConnectFour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFour.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				26123F3322527DB6005B091C /* OtherStuff */,
 				26123F2D22527CD3005B091C /* Info.plist */,
 				3038E34D2268FF0E000F0B42 /* guessingGame.swift */,
+				3071EFD7227C8FBB009B4D84 /* ConnectFour.swift */,
 				3038E34F2268FF2B000F0B42 /* gameServerController.swift */,
 				3038E3512268FF3D000F0B42 /* gameServerViewDelegate.swift */,
 			);
@@ -197,6 +200,7 @@
 				26123F4F225D19D5005B091C /* ClientListenerProtocol.swift in Sources */,
 				26123F54225D1BDA005B091C /* GameViewController.swift in Sources */,
 				3038E34E2268FF0E000F0B42 /* guessingGame.swift in Sources */,
+				3071EFD8227C8FBB009B4D84 /* ConnectFour.swift in Sources */,
 				26123F2222527CD0005B091C /* AppDelegate.swift in Sources */,
 				26123F412259545B005B091C /* ClientProtocols.swift in Sources */,
 				26123F3B2253EA8A005B091C /* ClientRecievedData.swift in Sources */,

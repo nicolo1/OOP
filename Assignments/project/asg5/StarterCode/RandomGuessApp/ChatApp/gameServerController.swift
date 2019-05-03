@@ -103,34 +103,34 @@ class gameServerController: ClientServerListenerDelegate {
             else {
                 me = parts[1]
             }
-            //self.mainPage!.updateViewPlayersChanged() // TODO: let view know number of players changed
+            //TODO: let view know number of players changed
         }
         
-        // this is the random number we need to guess // TODO: INIT CONNECT 4 GAME DATA TO SEND TO SERVER SHOULD GO HERE
+        // TODO: INIT CONNECT 4 GAME DATA TO SEND TO SERVER SHOULD GO HERE
         if parts[0] == "randomNumber" {
-            // TODO: send to client the received data
-            self.mainPage!.updateViewStatus(text:"Ready to play, waiting for \(you)")
+            /* TODO
+            1. SEND TO CLIENT RECEIVED DATA
+            2. UPDATE VIEW
+             */
         }
         
-        // we have received the random number // TODO: RECEIVED INIT CONNECT 4 GAME DATA TO SERVER SHOULD GO HERE
+        // TODO: RECEIVED INIT CONNECT 4 GAME DATA TO SERVER SHOULD GO HERE
         if parts[0] == "ranNumReceived" {
-            // TODO: UPDATE VIEW THAT GAME STARTED
-            // TODO: INIT CONNECT 4 GAME
-            // TODO: VIEW DIFFERENT FOR BOTH CHARACTERS
+            /* TODO
+             1. UPDATE VIEW THAT GAME STARTED
+             2. INIT CONNECT 4 GAME
+             3. VIEW DIFFERENT FOR BOTH CHARACTERS
+             */
         }
         
         // someone took a guess, now its the others turn // TODO: PLAYER PLAYED A TOKEN
         if parts[0] == "guess" {
-            /*
+            /* TODO
             1. GET TOKEN POSITION
-            let result = self.game!.processGuess(guesser: self.myTurn ? self.me : self.you, withGuess: guess) // CHECK WIN CONDITION
-            self.mainPage!.updateGuess(guess: result) // UPDATE VIEW
+            2. CHECK WIN CONDITION
+            3. UPDATE VIEW
             self.currentPlayer = self.currentPlayer % 2 + 1
-            if (self.game!.isGameOver(baseOnCurrentGuess:guess)) {
-                self.currentPlayer = 0
-                self.isGameWon = true
-            }
-            self.mainPage!.updateViewBasedOnCurrentPlayer(isGameWon: self.isGameWon, myPlayerTurn: self.myPlayerNumber, currentPlayerTurn: self.currentPlayer, you: self.you)
+            4. UPDATE VIEW BASED ON CURRENT PLAYER
              */
         }
     }
