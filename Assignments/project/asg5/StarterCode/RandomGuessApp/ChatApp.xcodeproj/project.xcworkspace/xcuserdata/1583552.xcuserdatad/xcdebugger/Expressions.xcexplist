@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "GameViewController.processUserData(_:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentPlayer">
+            </PersistentString>
+            <PersistentString
+               value = "guessLabel.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "gameServerController.processUserData(_:):gameServerController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "game">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "gameServerController.clientListenerReceived(rawData:):gameServerController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "you">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.viewDidLoad():GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "me">
+            </PersistentString>
+            <PersistentString
+               value = "myPlayerNumber">
+            </PersistentString>
+            <PersistentString
+               value = "client">
+            </PersistentString>
+            <PersistentString
+               value = "game">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.clientListenerDidConnect(asPlayer:andName:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "myPlayerNumber">
+            </PersistentString>
+            <PersistentString
+               value = "playerLabel.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "gameServerController.numberOfPlayers.didset:gameServerController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "you">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "gameServerController.randomNumberToGuess.didset:gameServerController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "randomNumberToGuess">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.updateViewName(name:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "me">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "gameServerController.someBodyConnected(userData:):gameServerController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "myPlayerNumber">
+            </PersistentString>
+            <PersistentString
+               value = "you">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.updatePlayersChangedUpdateView(numberOfPlayers:me:you:):GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "playerLabel.text">
+            </PersistentString>
+            <PersistentString
+               value = "StatusLabel.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "gameServerController.sendToServer(guess:):gameServerController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "let myNum = Int(&quot;a&quot;) ?? -1">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
