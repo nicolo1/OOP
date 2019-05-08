@@ -104,6 +104,7 @@ class gameServerController: ClientServerListenerDelegate {
                 me = parts[1]
             }
             //TODO: let view know number of players changed
+            self.mainPage!.updatePlayersChangedUpdateView(numberOfPlayers: self.numberOfPlayers, me: self.me, you: self.you)
         }
         
         // TODO: INIT CONNECT 4 GAME DATA TO SEND TO SERVER SHOULD GO HERE
@@ -151,9 +152,11 @@ class gameServerController: ClientServerListenerDelegate {
     // Start Game
     // ----------------------------------------------------
     func startGame() {
-        self.randomNumberToGuess = Int(arc4random_uniform(10)) + 1
-        self.client?.addToOutputQueue(thisData: "randomNumber:\(self.randomNumberToGuess)")
-        self.mainPage!.updateViewStartGame(status: "sending random number", isEnabled: true)
+        /* TODO
+         1. INITIALIZE GAME
+         2. SEND INITIALIZE DATA
+         3. UPDATE VIEW
+         */
     }
     
     // ----------------------------------------------------
@@ -167,26 +170,10 @@ class gameServerController: ClientServerListenerDelegate {
     // User clicked send button, send data to server
     // ----------------------------------------------------
     func sendToServer(guess: String) {
-        
-        if validateNumber(text: guess) {
-            let number = Int(guess)!
-            if self.myTurn {
-                self.client?.addToOutputQueue(thisData: "guess:\(number)")
-                self.mainPage!.updateSendText(text: "")
-            }
-        } else {
-            self.mainPage!.updateViewError(message: "you must send an integer")
-        }
-    }
-    
-    // -----------------------------------------------------------
-    // Validate that text is a valid integer
-    // -----------------------------------------------------------
-    func validateNumber(text: String) -> Bool {
-        let myNum = Int(text) ?? -1
-        if myNum <= -1 {
-            return false
-        }
-        return true
+
+        /* TODO
+         1. CHECK WHO'S TURN IT IS
+         2. THIS IS WHERE USER'S INPUT GOES AND SENT TO SERVER
+         */
     }
 }

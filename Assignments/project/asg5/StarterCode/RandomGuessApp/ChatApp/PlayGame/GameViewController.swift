@@ -29,10 +29,9 @@ class GameViewController: UIViewController, GameServerViewListenerDelegate {
     @IBOutlet weak var guessLabel: UILabel!
     @IBOutlet weak var StatusLabel: UILabel!
     
-    @IBOutlet weak var SendButton: UIButton!
     @IBOutlet weak var NewGameButton: UIButton!
     
-    @IBOutlet weak var sendToTextEntry: UITextField!
+    
     @IBOutlet weak var playerLabel: UILabel!
     let notYetColour:UIColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
     let okColour:UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -88,7 +87,6 @@ class GameViewController: UIViewController, GameServerViewListenerDelegate {
             guessLabel.text = ""
         }
         else {
-            SendButton.isEnabled = false
             StatusLabel.text = "waiting for another player to connect"
             NewGameButton.isEnabled = false
             playerLabel.text = "\(me)"
@@ -113,11 +111,11 @@ class GameViewController: UIViewController, GameServerViewListenerDelegate {
         else {
             if myPlayerTurn == currentPlayerTurn {
                 StatusLabel.text = "It's my turn, I'm gonna take a guess"
-                sendToTextEntry.textColor = okColour
+              
             }
             else {
                 StatusLabel.text = "waiting for \(you)"
-                sendToTextEntry.textColor = notYetColour
+          
             }
         }
     }
@@ -134,7 +132,6 @@ class GameViewController: UIViewController, GameServerViewListenerDelegate {
     // ----------------------------------------------------
     func updateViewStartGame(status: String, isEnabled: Bool) {
         StatusLabel.text = status
-        SendButton.isEnabled = isEnabled
         guessLabel.text = ""
     }
 
@@ -149,7 +146,6 @@ class GameViewController: UIViewController, GameServerViewListenerDelegate {
     // Update error message based on error
     // ----------------------------------------------------
     func updateViewError(message: String) {
-        sendToTextEntry.textColor = notYetColour
         StatusLabel.text = message
     }
     
@@ -157,6 +153,6 @@ class GameViewController: UIViewController, GameServerViewListenerDelegate {
     // Update guessing text field
     // ----------------------------------------------------
     func updateSendText(text: String) {
-        sendToTextEntry.text = text
+
     }
 }
