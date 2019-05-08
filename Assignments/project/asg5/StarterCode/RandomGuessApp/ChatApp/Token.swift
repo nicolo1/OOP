@@ -50,6 +50,7 @@ import UIKit
         self.tokenLabel.frame.size = CGSize.zero
         self.tokenLabel.sizeToFit()
         
+        // put label in center of widget
         let center = CGPoint(x: self.bounds.width/2, y: self.bounds.height/2)
         let halfWidth = self.tokenLabel.bounds.width/2
         let halfHeight = self.tokenLabel.bounds.height/2

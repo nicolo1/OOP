@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Oval.init(origin:endPoint:):Oval.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Oval.draw():Oval.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.shapeChosen(_:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "canvasView.selectedShape">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CanvasView.currentShape.didset:CanvasView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentShape">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CanvasView.draw(_:):CanvasView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "centre">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

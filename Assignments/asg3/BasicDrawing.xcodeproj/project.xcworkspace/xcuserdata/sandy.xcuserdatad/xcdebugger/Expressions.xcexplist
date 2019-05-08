@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "OptionsViewController.setSegmentColours(seg:type:):OptionsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "caller">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
